@@ -17,7 +17,7 @@
         <link rel="apple-touch-icon" href="/images/180.png">
         <!-- Styles -->
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-        
+
     </head>
     <body>
         <div id="app"><router-view style="min-height: 100vh;"></router-view></div>

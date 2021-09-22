@@ -54,6 +54,6 @@ Route::prefix('v1')->group(static function () {
 
     Route::prefix('user')->group(static function () {
         Route::get('/', UserController::class)->name('v1.user');
-        
+
     });
 });
