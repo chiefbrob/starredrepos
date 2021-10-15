@@ -7,7 +7,7 @@ ufw --force enable
 #ufw allow 443/tcp
 #ufw allow OpenSSH
 add-apt-repository ppa:ondrej/php
-DEBIAN_FRONTEND=noninteractive apt upgrade -y 
+DEBIAN_FRONTEND=noninteractive apt upgrade -y
 #ufw allow ssh
 apt-get install -y fail2ban
 apt install -y nginx
