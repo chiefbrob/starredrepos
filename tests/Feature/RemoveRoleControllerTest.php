@@ -10,7 +10,6 @@ use Tests\TestCase;
 class RemoveRoleControllerTest extends TestCase
 {
     use RefreshDatabase;
-
     /**
      * A basic feature test example.
      *

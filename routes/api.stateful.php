@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddUserRoleController;
 use App\Http\Controllers\CreateRoleController;
+use App\Http\Controllers\RemoveRoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
