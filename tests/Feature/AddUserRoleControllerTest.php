@@ -10,7 +10,6 @@ use Tests\TestCase;
 class AddUserRoleControllerTest extends TestCase
 {
     use RefreshDatabase;
-
     /**
      * A basic feature test example.
      *
@@ -21,7 +20,6 @@ class AddUserRoleControllerTest extends TestCase
         $this->actingAsAdmin();
         $user = User::factory()->create(['email' => 'foo1@gmail.com']);
         $role = Role::create(['name' => 'example']);
-
         $this->post(route('user-role.create', [
             'user_id' => $user->id,
             'role_id' => $role->id,

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AddUserRoleController;
+use App\Http\Controllers\CreateRoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
