@@ -21,7 +21,6 @@ abstract class TestCase extends BaseTestCase
     public function actingAsRandomUser(array $attributes = [])
     {
         $this->user = User::factory()->create($attributes);
-
         return $this->actingAs($this->user);
     }
 
@@ -37,7 +36,6 @@ abstract class TestCase extends BaseTestCase
         $role = Role::firstOrCreate(['name' => 'admin']);
         $admin->assignRole($role);
         $this->user = $admin;
-
         return $this->actingAs($admin);
     }
 }

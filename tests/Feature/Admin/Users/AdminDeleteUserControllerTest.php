@@ -9,7 +9,6 @@ use Tests\TestCase;
 class AdminDeleteUserControllerTest extends TestCase
 {
     use RefreshDatabase;
-
     /**
      * A basic feature test example.
      *

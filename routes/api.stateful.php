@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AddUserRoleController;
-use App\Http\Controllers\CreateRoleController;
-use App\Http\Controllers\RemoveRoleController;
+use App\Http\Controllers\Admin\Users\AdminDeleteUserController;
+use App\Http\Controllers\Admin\Roles\AddUserRoleController;
+use App\Http\Controllers\Admin\AdminGetUsersController;
+use App\Http\Controllers\Admin\Roles\CreateRoleController;
+use App\Http\Controllers\Admin\Roles\RemoveRoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +49,10 @@ Route::prefix('v1')->group(static function () {
         Route::prefix('users')->group(static function () {
             Route::get('/', Admin\AdminGetUsersController::class)->name('admin.users');
             Route::delete('/', Admin\Users\AdminDeleteUserController::class)->name('admin.users.delete');
+        });
+        Route::prefix('users')->group(static function () {
+            Route::get('/', AdminGetUsersController::class)->name('admin.users');
+            Route::delete('/', AdminDeleteUserController::class)->name('admin.users.delete');
         });
 
         Route::prefix('user-roles')->group(static function () {
