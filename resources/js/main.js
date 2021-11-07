@@ -28,6 +28,8 @@ Vue.component('page-footer', require('./components/shared/Footer').default);
 
 Vue.component('phone-number', require('./components/shared/PhoneNumber').default);
 
+Vue.component('file-uploader', require('./components/shared/FileUploader').default);
+
 Vue.use(VueRouter);
 
 require('./filters');
