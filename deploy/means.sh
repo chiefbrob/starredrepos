@@ -69,7 +69,7 @@ php artisan db:seed
 composer dump-autoload
 certbot --nginx -d means.on.chiefbrob.info
 certbot renew --dry-run
-// if you have passport installed 
+// if you have passport installed
 php artisan passport:install
 
 clear
