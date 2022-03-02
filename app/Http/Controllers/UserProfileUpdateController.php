@@ -43,7 +43,8 @@ class UserProfileUpdateController extends Controller
             Log::error($e);
 
             return response()->json(
-                ['message' => 'Failed to update profile'], Response::HTTP_UNPROCESSABLE_ENTITY
+                ['message' => 'Failed to update profile'],
+                Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
     }

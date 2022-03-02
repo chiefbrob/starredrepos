@@ -11,7 +11,6 @@ use Tests\TestCase;
 class UserProfileUpdateControllerTest extends TestCase
 {
     use RefreshDatabase;
-
     /**
      * A basic feature test example.
      *
@@ -60,7 +59,8 @@ class UserProfileUpdateControllerTest extends TestCase
         $oldPic = $this->user->photo;
 
         $this->post(
-            route('v1.user.update', ['user_id' => $this->user->id]), [
+            route('v1.user.update', ['user_id' => $this->user->id]),
+            [
                 'name' => 'Makori3',
                 'phone_number' => 7891234,
                 'photo' => UploadedFile::fake()->image('profile.jpeg'),
