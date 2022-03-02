@@ -44,13 +44,13 @@ export default {
     },
     {
       name: 'admin',
-      path: '/home/admin',
+      path: '/admin',
       component: AdminDashboard,
       meta: { requiresAdmin: true },
     },
     {
       name: 'style',
-      path: '/home/style',
+      path: '/style',
       component: Style,
       meta: { requiresAdmin: true },
     },
