@@ -62,3 +62,11 @@ composer check-style
 composer fix-style
 /vendor/bin/pint
 ```
+
+# Pull changes to your repository
+
+```bash
+git remote add template git@github.com:chiefbrob/builder_laravel.git
+git fetch template
+git rebase template/master
+```
