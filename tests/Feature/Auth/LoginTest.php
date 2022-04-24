@@ -48,12 +48,10 @@ class LoginTest extends TestCase
         $user = User::factory()->create([
             'password' => Hash::make('i-love-laravel'),
         ]);
-
         $response = $this->from('/login')->post('/login', [
             'email' => $user->email,
             'password' => 'invalid-password',
         ]);
-
         $response->assertRedirect('/login');
         $response->assertSessionHasErrors('email');
         $this->assertTrue(session()->hasOldInput('email'));
