@@ -30,6 +30,10 @@ Vue.component('phone-number', require('./components/shared/PhoneNumber').default
 
 Vue.component('file-uploader', require('./components/shared/FileUploader').default);
 
+Vue.component('field-error', require('./components/shared/FieldError').default);
+
+Vue.component('avatar', require('./components/home/ProfileImage').default);
+
 Vue.use(VueRouter);
 
 require('./filters');

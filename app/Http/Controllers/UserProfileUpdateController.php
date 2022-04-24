@@ -8,18 +8,21 @@ use App\PhotoManager;
 use Exception;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class UserProfileUpdateController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param  \App\Http\Requests\UserProfileUpdateRequest  $request
+     * @param \App\Http\Requests\UserProfileUpdateRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function __invoke(UserProfileUpdateRequest $request, $user_id)
     {
         try {
+
             $user = User::findOrFail($user_id);
             if ($request->phone_number !== $user->phone_number) {
                 $user->phone_number_verified_at = null;
