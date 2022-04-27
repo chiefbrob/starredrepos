@@ -8,7 +8,6 @@ use App\PhotoManager;
 use Exception;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class UserProfileUpdateController extends Controller
 {

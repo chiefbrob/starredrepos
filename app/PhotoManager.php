@@ -14,7 +14,12 @@ class PhotoManager
      * @return string Name of the file in the directory or null
      */
     public static function savePhoto(
-        $photo, string $path = 'profile', $oldName = null, $resize = true, $width = 120, $height = 120
+        $photo,
+        string $path = 'profile',
+        $oldName = null,
+        $resize = true,
+        $width = 120,
+        $height = 120
     ): string {
         $fileName = time().rand(1, 10000).'.'.$photo->getClientOriginalExtension();
 
