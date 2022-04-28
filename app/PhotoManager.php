@@ -32,7 +32,6 @@ class PhotoManager
 
         $storage = Storage::disk('local')
             ->put("public/images/$path/$fileName", $img, 'public');
-
         if ($storage) {
             if ($oldName) {
                 Storage::disk('local')
