@@ -9,17 +9,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contact extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
-    const STATUS_PENDING = 'PENDING';
+    public const STATUS_PENDING = 'PENDING';
 
-    const STATUS_QUEUED = 'QUEUED';
+    public const STATUS_QUEUED = 'QUEUED';
 
-    const STATUS_IN_PROGRESS = 'IN_PROGRESS';
+    public const STATUS_IN_PROGRESS = 'IN_PROGRESS';
 
-    const STATUS_COMPLETE = 'COMPLETE';
+    public const STATUS_COMPLETE = 'COMPLETE';
 
-    const STATUSES = [
+    public const STATUSES = [
         self::STATUS_PENDING,
         self::STATUS_QUEUED,
         self::STATUS_IN_PROGRESS,
