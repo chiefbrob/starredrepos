@@ -34,7 +34,6 @@ Route::post('/language/{locale}', function ($locale) {
     if (! in_array($locale, ['en', 'fr', 'sw'])) {
         abort(400);
     }
-
     App::setLocale($locale);
     Session::put('locale', $locale);
     if (auth()->user()) {
