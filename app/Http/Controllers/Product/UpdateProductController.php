@@ -7,7 +7,7 @@ use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Product;
 use App\PhotoManager;
 use Exception;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
 class UpdateProductController extends Controller
