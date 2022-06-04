@@ -48,7 +48,6 @@ class CartRepository
         }
         $this->cart = $newCart;
         Session::put('cart', $newCart);
-
         return $this->getCart();
     }
 

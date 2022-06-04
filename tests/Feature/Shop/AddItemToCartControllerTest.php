@@ -34,7 +34,6 @@ class AddItemToCartControllerTest extends TestCase
             'product_variant_id' => $variant->id,
             'quantity' => 2,
         ])->assertOk()->assertJson([
-
             'cart' => [
                 [
                     'id' => $variant->id,
@@ -59,7 +58,6 @@ class AddItemToCartControllerTest extends TestCase
             'product_variant_id' => $variant->id,
             'quantity' => 1,
         ])->assertOk()->assertJson([
-
             'cart' => [
                 [
                     'id' => $variant->id,
@@ -82,7 +80,6 @@ class AddItemToCartControllerTest extends TestCase
             'product_variant_id' => $variant->id,
             'quantity' => 2,
         ])->assertOk()->assertJson([
-
             'cart' => [
                 [
                     'id' => $variant->id,
