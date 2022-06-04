@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProductVariant extends Variants
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -33,7 +34,6 @@ class ProductVariant extends Variants
         if ($this->variant_id) {
             return ProductVariant::findOrFail($this->variant_id);
         }
-
         return $this->product;
     }
 

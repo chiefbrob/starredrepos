@@ -29,7 +29,6 @@ class Product extends Variants
     protected $casts = [
         'price' => MoneyCast::class,
     ];
-
     public function productVariants(): HasMany
     {
         return $this->hasMany(ProductVariant::class);

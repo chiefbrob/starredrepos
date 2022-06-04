@@ -30,7 +30,6 @@ class CreateProductController extends Controller
                     'product_id' => $product->id,
                 ]
             );
-
             if ($request->hasFile('photo')) {
                 $photo = $request->file('photo');
                 $product->photo = PhotoManager::savePhoto(
