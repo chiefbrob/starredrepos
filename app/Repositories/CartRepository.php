@@ -14,6 +14,9 @@ use Illuminate\Support\Str;
 class CartRepository
 {
     public $cart;
+    private $reserved = false;
+    private $invoice = null;
+    private $request = null;
 
     private $reserved = false;
 
@@ -173,7 +176,6 @@ class CartRepository
             ];
         } else {
             $this->releaseCartItems();
-
             return false;
         }
     }
@@ -197,7 +199,6 @@ class CartRepository
 
         if ($invoice->id) {
             $this->invoice = $invoice;
-
             return true;
         } else {
             return false;

@@ -57,7 +57,6 @@ class InvoiceFactory extends Factory
 
         $repo = new CartRepository();
         $cart = $repo->addToCart($variant1, rand(1, 4));
-
         return [
             'reference' => 'SHOP'.rand(10000, 1000000),
             'user_id' => $user->id,

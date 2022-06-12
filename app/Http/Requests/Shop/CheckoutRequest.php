@@ -54,7 +54,6 @@ class CheckoutRequest extends FormRequest
                 'integer',
                 'exists:payment_methods,id',
             ],
-
         ];
     }
 

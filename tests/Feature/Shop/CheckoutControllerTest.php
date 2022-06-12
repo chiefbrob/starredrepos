@@ -114,7 +114,6 @@ class CheckoutControllerTest extends TestCase
         $this->actingAsRandomUser();
 
         $variants = $this->product1->productVariants;
-
         $variant1 = $variants[0];
         $variant2 = $variants[1];
 
