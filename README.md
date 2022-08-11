@@ -63,6 +63,8 @@ composer fix-style
 /vendor/bin/pint
 ```
 
+View site on https://builder_laravel.test
+
 # Pull changes to your repository
 
 ```bash
