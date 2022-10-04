@@ -10,6 +10,7 @@ use Tests\TestCase;
 class AddUserRoleControllerTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *

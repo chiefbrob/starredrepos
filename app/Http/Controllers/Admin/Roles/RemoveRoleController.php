@@ -22,6 +22,7 @@ class RemoveRoleController extends Controller
         try {
             $userRole = UserRole::findOrFail($request->user_role_id);
             $userRole->delete();
+
             return response()->json(
                 ['message' => 'user-role deleted']
             );

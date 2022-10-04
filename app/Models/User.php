@@ -6,6 +6,7 @@ use App\Traits\CanBlog;
 use App\Traits\HasGithubToken;
 use App\Traits\HasRoles;
 use App\Traits\CanBlog;
+use App\Traits\HasRoles;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;

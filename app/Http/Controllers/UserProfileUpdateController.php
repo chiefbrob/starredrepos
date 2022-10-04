@@ -21,7 +21,6 @@ class UserProfileUpdateController extends Controller
     public function __invoke(UserProfileUpdateRequest $request, $user_id)
     {
         try {
-
             $user = User::findOrFail($user_id);
             if ($request->phone_number !== $user->phone_number) {
                 $user->phone_number_verified_at = null;

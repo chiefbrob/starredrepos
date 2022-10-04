@@ -34,6 +34,7 @@ class ProductVariant extends Variants
         if ($this->variant_id) {
             return ProductVariant::findOrFail($this->variant_id);
         }
+
         return $this->product;
     }
 

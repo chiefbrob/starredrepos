@@ -29,6 +29,7 @@ trait HasRoles
     {
         $role = UserRole::where('user_id', $this->id)
             ->where('role_id', $role->id)->first();
+
         return $role ? true : false;
     }
 
