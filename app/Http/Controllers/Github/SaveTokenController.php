@@ -21,16 +21,16 @@ class SaveTokenController extends Controller
      */
     public function __invoke(SaveTokenRequest $request)
     {
-        //try {
+        try {
             $user = User::where('id', Auth::user()->id)->first();
             $user->setGithubToken($request->github_token);
 
             return response([ 'message' => 'ok' ], Response::HTTP_CREATED);
-        // } catch (Exception $e) {
-        //     Log::error($e);
-        //     return response()->json([
-        //         'message' => 'Failed to save token',
-        //     ], Response::HTTP_UNPROCESSABLE_ENTITY);
-        // }
+        } catch (Exception $e) {
+            Log::error($e);
+            return response()->json([
+                'message' => 'Failed to save token',
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
     }
 }

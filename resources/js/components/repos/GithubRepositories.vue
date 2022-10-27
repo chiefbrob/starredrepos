@@ -5,12 +5,23 @@
     <div class="mb-5 pb-5 row">
       <div class="col-md-8 offset-md-2 pt-4 row">
         <div class="col-md-12">
-          <h3>GitHub <span :v-text="form.token ? 'Starred Repositories' : 'Token'"></span></h3>
+          <h3>
+            Repositories
+            <b-button
+              :disabled="loading"
+              v-if="$store.getters.user.github_token"
+              @click="deleteToken"
+              class="float-right"
+              size="sm"
+              variant="danger"
+              >Delete Token</b-button
+            >
+          </h3>
         </div>
         <div v-if="loading" class="col-md-12">
           <p><i class="fa fa-spinner"></i> Loading..</p>
         </div>
-        <div v-else class="col-md-12">
+        <div v-else-if="!$store.getters.user.github_token" class="col-md-12">
           <b-form @submit.prevent="saveToken">
             <b-form-group
               id="input-group-1"
@@ -21,7 +32,7 @@
               <b-form-input
                 id="github_token"
                 v-model="form.github_token"
-                type="password"
+                type="text"
                 required
                 placeholder=""
               ></b-form-input>
@@ -34,6 +45,32 @@
               value="Save Token"
             />
           </b-form>
+        </div>
+        <div v-else class="row">
+          <div class="col-md-4" v-for="repo in repositories" v-bind:key="repo">
+            <b-card :sub-title="repo.full_name" :title="repo.name" :footer="repo.private">
+              <b-card-text>
+                {{ repo.description }}
+              </b-card-text>
+
+              <b-card-text>
+                <b-list-group>
+                  <b-list-group-item>
+                    <a :href="repo.html_url" target="_blank" rel="noopener noreferrer"
+                      ><i class="fa-brands fa-github"></i
+                    ></a>
+                    View on GitHub</b-list-group-item
+                  >
+                  <b-list-group-item>Created {{ repo.created_at | relative }}</b-list-group-item>
+                  <b-list-group-item>Updated {{ repo.updated_at | relative }}</b-list-group-item>
+                  <b-list-group-item>Stars {{ repo.stargazers_count }}</b-list-group-item>
+                  <b-list-group-item>Watchers {{ repo.watchers_count }}</b-list-group-item>
+                  <b-list-group-item>Language {{ repo.language }}</b-list-group-item>
+                  <b-list-group-item>Open issues {{ repo.open_issues }}</b-list-group-item>
+                </b-list-group>
+              </b-card-text>
+            </b-card>
+          </div>
         </div>
       </div>
     </div>
@@ -54,7 +91,9 @@
       };
     },
     mounted() {
-      this.loadRepositories();
+      if (this.$store.getters.user.github_token) {
+        this.loadRepositories();
+      }
     },
 
     methods: {
@@ -79,7 +118,7 @@
         axios
           .get(`/api/v1/Github/repositories/starred`)
           .then(results => {
-            //
+            this.repositories = results.data;
           })
           .catch(error => {
             this.$root.$emit('sendMessage', 'Failed to load Starred Repositories');

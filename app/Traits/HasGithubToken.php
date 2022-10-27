@@ -37,4 +37,9 @@ trait HasGithubToken
         $this->github_token = null;
         return $this->save();
     }
+
+    public function hasGithubToken()
+    {
+        return $this->github_token !== null ? true : false;
+    }
 }
