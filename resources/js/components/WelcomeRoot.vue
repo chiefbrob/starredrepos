@@ -16,7 +16,7 @@
             It uses github token. More notes on how to generate a token can be found
             <a target="_blank" href="https://github.com/settings/tokens">here</a>
           </p>
-          <p><b-button href="/home" variant="dark" size="sm">Get Started</b-button></p>
+          <p><b-button to="repositories" variant="dark" size="sm">Get Started</b-button></p>
         </b-jumbotron>
       </div>
     </div>
