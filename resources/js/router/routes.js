@@ -19,6 +19,8 @@ import CreateProduct from '../components/shop/CreateProduct';
 import EditProduct from '../components/shop/EditProduct';
 import ViewProduct from '../components/shop/ViewProduct';
 
+import GithubRepositories from '../components/repos/GithubRepositories';
+
 export default {
   mode: 'history',
   routes: [
@@ -62,6 +64,12 @@ export default {
       name: 'settings',
       path: '/profile/settings/:section?',
       component: Settings,
+      meta: { requiresAuth: true },
+    },
+    {
+      name: 'repositories',
+      path: '/repositories',
+      component: GithubRepositories,
       meta: { requiresAuth: true },
     },
     {

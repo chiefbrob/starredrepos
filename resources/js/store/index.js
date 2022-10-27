@@ -15,7 +15,7 @@ export default new Vuex.Store({
     user: null,
     loading: false,
     config: {
-      name: 'Template',
+      name: 'Starred Repositoeries',
       url: process.env.APP_URL,
     },
   },

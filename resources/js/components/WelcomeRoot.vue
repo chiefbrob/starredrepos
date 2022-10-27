@@ -2,31 +2,22 @@
   <div>
     <nav-root></nav-root>
     <div class="row py-5 mb-5">
-      <div class="col-md-3 offset-md-1">
-        <b-card
-          title="Card Title"
-          img-src="https://picsum.photos/600/300/?image=25"
-          img-alt="Image"
-          img-top
-          tag="article"
-          class="mb-2"
-        >
-          <b-card-text>
-            Some quick example text to build on the card title and make up the bulk of the card's
-            content.
-          </b-card-text>
+      <div class="col-md-8 offset-md-2">
+        <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark">
+          <template #header>Starred Repositories</template>
 
-          <b-button href="#" variant="primary">Go somewhere </b-button>
+          <template #lead>
+            This application connects to your github account and fetches your starred Repositories.
+          </template>
 
-          <clipboard content="copy me"></clipboard>
-        </b-card>
-      </div>
-      <div class="col-md-7">
-        <b-tabs content-class="mt-3" align="center">
-          <b-tab title="First" active><p>I'm the first tab</p></b-tab>
-          <b-tab title="Second"><p>I'm the second tab</p></b-tab>
-          <b-tab title="Disabled" disabled><p>I'm a disabled tab!</p></b-tab>
-        </b-tabs>
+          <hr class="my-4" />
+
+          <p>
+            It uses github token. More notes on how to generate a token can be found
+            <a target="_blank" href="https://github.com/settings/tokens">here</a>
+          </p>
+          <p><b-button href="/home" variant="dark" size="sm">Get Started</b-button></p>
+        </b-jumbotron>
       </div>
     </div>
     <page-footer></page-footer>

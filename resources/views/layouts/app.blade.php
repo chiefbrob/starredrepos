@@ -6,13 +6,13 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Template to base new applications from">
+    <meta name="description" content="View Github Starred Repositories">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#317EFB"/>
     <link rel="apple-touch-icon" href="/images/180.png">
 
 
-    <title>{{ config('app.name', 'LaravelTemplate') }}</title>
+    <title>{{ config('app.name', 'StarredRepos') }}</title>
 
 
     <!-- Fonts -->

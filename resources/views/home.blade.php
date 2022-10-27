@@ -6,9 +6,9 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="Template to base new applications from">
+        <meta name="description" content="view Github Starred Repositories">
 
-        <title>{{ config('app.name', 'Builder') }}</title>
+        <title>{{ config('app.name', 'Starred Repositories') }}</title>
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

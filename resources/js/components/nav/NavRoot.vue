@@ -27,10 +27,18 @@
           >
           <b-nav-item
             href="#"
+            v-if="false"
             @click="$router.push({ name: 'blog' })"
             :active="$route.name === 'blog'"
             ><i class="fa fa-book"></i> Blog</b-nav-item
           >
+          <b-nav-item
+            href="#"
+            @click="$router.push({ name: 'repositories' })"
+            :active="$route.name === 'repositories'"
+            ><i class="fa fa-lock"></i> Repositories</b-nav-item
+          >
+
           <b-nav-item
             href="#"
             v-if="$root.$featureIsEnabled('shop')"
@@ -51,7 +59,7 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-form @submit.prevent="formSubmitted">
+          <b-nav-form @submit.prevent="formSubmitted" v-if="false">
             <b-form-input
               size="sm"
               class="mr-sm-2"
@@ -61,7 +69,7 @@
             <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
           </b-nav-form>
 
-          <b-nav-item-dropdown right>
+          <b-nav-item-dropdown right v-if="false">
             <template #button-content> <i class="fa fa-language"></i> {{ language }} </template>
             <b-dropdown-item
               v-for="lang in languages"
