@@ -28,7 +28,6 @@ class UpdateBlogController extends Controller
             $validated = $request->validated();
             unset($validated['default_image']);
             $blog->fill($validated);
-
             if ($request->hasFile('default_image')) {
                 $default_image = $request->file('default_image');
                 $blog->default_image = PhotoManager::savePhoto(

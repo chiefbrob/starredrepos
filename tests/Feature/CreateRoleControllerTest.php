@@ -24,7 +24,6 @@ class CreateRoleControllerTest extends TestCase
             'name' => 'admin',
         ]);
 
-
         $this->post(route('roles.create', [
             'name' => 'test',
             'description' => 'Sample testing role',

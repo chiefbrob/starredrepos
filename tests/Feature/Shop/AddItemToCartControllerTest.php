@@ -34,7 +34,6 @@ class AddItemToCartControllerTest extends TestCase
      */
     public function testAddProductToCart()
     {
-
         $this->get(route('v1.cart'))->assertOk()->assertJson([
 
             'cart' => [],

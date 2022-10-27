@@ -2,7 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import '../sass/main.scss';
-
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 import routes from './router/routes';
