@@ -15,19 +15,24 @@
             <b-form-group
               id="input-group-1"
               label="Github Token: *"
-              label-for="token"
+              label-for="github_token"
               description="Enter github token with permission to view repositories"
             >
               <b-form-input
-                id="token"
-                v-model="form.token"
+                id="github_token"
+                v-model="form.github_token"
                 type="password"
                 required
                 placeholder=""
               ></b-form-input>
             </b-form-group>
-            <field-error :solid="false" :errors="errors" field="token"></field-error>
-            <input type="submit" class="btn btn-sm btn-dark" value="Save Token" />
+            <field-error :solid="false" :errors="errors" field="github_token"></field-error>
+            <input
+              :disabled="!form.github_token || form.github_token.length < 5"
+              type="submit"
+              class="btn btn-sm btn-dark"
+              value="Save Token"
+            />
           </b-form>
         </div>
       </div>
@@ -41,31 +46,43 @@
     data() {
       return {
         form: {
-          token: null,
+          github_token: null,
         },
+        repositories: [],
         errors: [],
         loading: true,
       };
     },
     mounted() {
-      this.loadToken();
+      this.loadRepositories();
     },
 
     methods: {
       saveToken() {
-        console.log(this.form);
-        //post
-      },
-      loadToken() {
+        this.loading = true;
         axios
-          .get(`/api/v1/repositories`)
+          .post(`/api/v1/Github/`, this.form)
           .then(results => {
-            if (results.data) {
-              this.token = results.data.data;
-            }
+            this.$root.$emit('sendMessage', 'Github token saved!', 'success');
+            this.github_token = null;
+            this.loadRepositories();
           })
           .catch(error => {
-            this.$root.$emit('sendMessage', 'Failed to load Repositories');
+            this.$root.$emit('sendMessage', 'Failed to save github token');
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
+      loadRepositories() {
+        this.loading = true;
+        axios
+          .get(`/api/v1/Github/repositories/starred`)
+          .then(results => {
+            //
+          })
+          .catch(error => {
+            this.$root.$emit('sendMessage', 'Failed to load Starred Repositories');
           })
           .finally(() => {
             this.loading = false;

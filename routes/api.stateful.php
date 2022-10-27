@@ -20,6 +20,10 @@ Route::prefix('v1')->group(static function () {
         Route::get('/', GetContactsController::class)->name('v1.contact.index');
     });
 
+    Route::prefix('Github')->namespace('Github')->group(static function () {
+        Route::post('/', SaveTokenController::class)->name('v1.github_token.store');
+    });
+
     Route::prefix('blog')->namespace('Blog')->group(static function () {
         Route::post('/', CreateBlogController::class)->name('v1.blog.create');
         Route::post('/{id}', UpdateBlogController::class)->name('v1.blog.update');
