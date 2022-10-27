@@ -32,7 +32,7 @@
               <b-form-input
                 id="github_token"
                 v-model="form.github_token"
-                type="text"
+                type="password"
                 required
                 placeholder=""
               ></b-form-input>

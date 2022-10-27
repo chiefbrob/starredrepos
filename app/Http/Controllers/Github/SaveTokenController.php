@@ -16,7 +16,7 @@ class SaveTokenController extends Controller
      * Handle the incoming request.
      *
      * @param  \App\Http\Requests\Github\SaveTokenRequest  $request
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function __invoke(SaveTokenRequest $request)

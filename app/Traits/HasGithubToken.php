@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Traits;
 
 use Carbon\Carbon;
@@ -14,7 +15,7 @@ trait HasGithubToken
         }
 
         $github_token = false;
-        
+
         try {
             $github_token = decrypt($this->github_token);
         } catch (DecryptException $e) {

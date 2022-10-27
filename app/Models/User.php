@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use SoftDeletes;
     use CanBlog;
     use CanTeamUp;
+    use HasGithubToken;
 
     /**
      * The attributes that are mass assignable.
