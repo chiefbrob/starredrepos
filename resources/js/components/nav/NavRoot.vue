@@ -93,6 +93,13 @@
 
           <b-nav-item
             href="#"
+            @click="$router.push({ name: 'repositories' })"
+            :active="$route.name === 'repositories'"
+            ><i class="fa fa-lock"></i> Repositories</b-nav-item
+          >
+
+          <b-nav-item
+            href="#"
             v-if="$root.$featureIsEnabled('shop')"
             @click="$router.push({ name: 'shop' })"
             :active="$route.name.includes('shop') || $route.name.includes('product')"
