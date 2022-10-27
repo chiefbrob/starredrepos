@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 //use Tests\Feature\MocksGithubAPI;
 use Tests\TestCase;
+use Tests\Feature\MocksGithubAPI;
 
 class GetStarredRepositoriesControllerTest extends TestCase
 {
