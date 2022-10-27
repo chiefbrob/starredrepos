@@ -9,7 +9,7 @@
             Repositories
             <b-button
               :disabled="loading"
-              v-if="$store.getters.user.github_token"
+              v-if="!!$store.getters.user.github_token"
               @click="deleteToken"
               class="float-right"
               size="sm"
@@ -21,7 +21,7 @@
         <div v-if="loading" class="col-md-12">
           <p><i class="fa fa-spinner"></i> Loading..</p>
         </div>
-        <div v-else-if="!$store.getters.user.github_token" class="col-md-12">
+        <div v-if="!loading && !$store.getters.user.github_token" class="col-md-12">
           <b-form @submit.prevent="saveToken">
             <b-form-group
               id="input-group-1"
@@ -46,9 +46,9 @@
             />
           </b-form>
         </div>
-        <div v-else class="row">
-          <div class="col-md-4" v-for="repo in repositories" v-bind:key="repo">
-            <b-card :sub-title="repo.full_name" :title="repo.name" :footer="repo.private">
+        <div v-if="!loading" class="row">
+          <div class="col-md-4" v-for="repo in repositories" v-bind:key="repo.id">
+            <b-card :sub-title="repo.full_name" :title="repo.name">
               <b-card-text>
                 {{ repo.description }}
               </b-card-text>
@@ -87,7 +87,7 @@
         },
         repositories: [],
         errors: [],
-        loading: true,
+        loading: false,
       };
     },
     mounted() {
@@ -104,7 +104,13 @@
           .then(results => {
             this.$root.$emit('sendMessage', 'Github token saved!', 'success');
             this.github_token = null;
-            this.loadRepositories();
+            this.$root.$emit('loadUser');
+            setTimeout(() => {
+              this.loading = true;
+            }, 500);
+            setTimeout(() => {
+              this.loadRepositories();
+            }, 5000);
           })
           .catch(error => {
             this.$root.$emit('sendMessage', 'Failed to save github token');
@@ -128,7 +134,20 @@
           });
       },
       deleteToken() {
-        //delete
+        this.loading = true;
+        axios
+          .delete(`/api/v1/Github/token`)
+          .then(results => {
+            this.$root.$emit('sendMessage', 'Github Token Deleted', 'success');
+            this.$root.$emit('loadUser');
+            setTimeout(() => {
+              this.$router.push('/');
+            }, 3000);
+          })
+          .catch(error => {
+            this.$root.$emit('sendMessage', 'Failed Delete Token');
+            this.loading = false;
+          });
       },
     },
   };

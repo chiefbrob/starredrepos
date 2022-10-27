@@ -23,6 +23,7 @@ Route::prefix('v1')->group(static function () {
     Route::prefix('Github')->namespace('Github')->group(static function () {
         Route::get('/repositories/starred', GetStarredRepositoriesController::class)->name('v1.repositories.starred');
         Route::post('/', SaveTokenController::class)->name('v1.github_token.store');
+        Route::delete('/token', DeleteTokenController::class)->name('v1.github_token.delete');
     });
 
     Route::prefix('blog')->namespace('Blog')->group(static function () {
@@ -49,5 +50,10 @@ Route::prefix('v1')->group(static function () {
             Route::post('/', Admin\Roles\AddUserRoleController::class)->name('user-role.create');
             Route::delete('/', Admin\Roles\RemoveRoleController::class)->name('user-role.delete');
         });
+    });
+
+    Route::prefix('user')->group(static function () {
+        Route::get('/', UserController::class)->name('v1.user');
+        
     });
 });

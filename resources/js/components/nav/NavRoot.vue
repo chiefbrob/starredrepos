@@ -170,6 +170,9 @@
       this.$root.$on('sendMessage', (message, variant) => {
         this.sendMessage(message, variant);
       });
+      this.$root.$on('loadUser', (message, variant) => {
+        this.loadUser();
+      });
     },
     methods: {
       setLocale(lang) {
@@ -214,6 +217,17 @@
         this.message.text = text;
         this.message.variant = variant;
         this.message.show = true;
+      },
+      loadUser() {
+        axios
+          .get('/api/v1/user')
+          .then(results => {
+            this.$store.commit('user', results.data);
+            window.User = results.data;
+          })
+          .catch(error => {
+            console.log(error);
+          });
       },
     },
   };
