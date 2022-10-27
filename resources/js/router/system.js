@@ -9,7 +9,7 @@ import ContactRoot from '../components/pages/ContactRoot';
 import ContactsRoot from '../components/contacts/ContactsRoot';
 import HomeRoot from '../components/home/HomeRoot';
 import SearchResults from '../components/search/SearchResults';
-import GithubRepositories from '../../components/repos/GithubRepositories';
+import GithubRepositories from '../components/repos/GithubRepositories';
 
 export const system = [
   {
