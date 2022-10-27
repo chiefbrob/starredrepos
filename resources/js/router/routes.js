@@ -20,10 +20,17 @@ import EditProduct from '../components/shop/EditProduct';
 import ViewProduct from '../components/shop/ViewProduct';
 
 import GithubRepositories from '../components/repos/GithubRepositories';
+import RegisterUser from '../components/auth/RegisterUser';
 
 export default {
   mode: 'history',
   routes: [
+    {
+      name: 'register',
+      path: '/register',
+      component: RegisterUser,
+      meta: { requiresAuth: false },
+    },
     {
       name: 'welcome',
       path: '/',
