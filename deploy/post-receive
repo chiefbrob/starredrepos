@@ -1,0 +1,16 @@
+#!/bin/sh
+
+git --work-tree=/var/www/on/builder-laravel --git-dir=/var/repo/on/builder-laravel.git checkout -f
+chown -R :www-data /var/www/on/builder-laravel
+chmod -R 777 /var/www/on/builder-laravel
+
+cd /var/www/on/builder-laravel
+
+composer install --no-dev
+php artisan migrate --force
+npm i --production
+npm run production
+
+chown -R :www-data /var/www/on/builder-laravel
+chmod -R 777 /var/www/on/builder-laravel
+
