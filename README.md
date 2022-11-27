@@ -1,8 +1,10 @@
-# builder_laravel
+# Laravel Builder Template
 
-This is a template repository used to build Laravel Applications for chiefbrob/builder
+This template allows you to quickly start building laravel applications from scratch.
 
 # Using Template
+
+Setup Environment
 
 Copy `.env.example` to `.env`
 Update `APP_NAME`, `APP_URL`
