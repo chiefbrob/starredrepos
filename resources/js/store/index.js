@@ -15,7 +15,7 @@ export default new Vuex.Store({
     user: null,
     loading: false,
     config: {
-      name: 'Starred Repos',
+      name: window.details.name,
       url: process.env.APP_URL,
     },
   },

@@ -13,10 +13,11 @@
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="manifest" href="/manifest.json">
-        <meta name="theme-color" content="#317EFB"/>
         <link rel="apple-touch-icon" href="/images/180.png">
-        <!-- Styles -->
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+        @include('header-links')
+
     </head>
     <body>
         <div id="app"><router-view style="min-height: 100vh;"></router-view></div>
@@ -31,10 +32,17 @@
         }
     </script>
     <script>
+        window.details = {
+            name:  '{{ config('app.name') }}',
+            description: '{{ config('app.description') }}',
+        };
         window.feature_flags = @json(\FriendsOfCat\LaravelFeatureFlags\FeatureFlagsForJavascript::get());
         window.User = @json(Auth::user());
         window.locale =  @json(\Illuminate\Support\Facades\App::currentLocale());
     </script>
+    <noscript>
+        JavaScript is Disabled.
+      </noscript>
     <script src="{{ mix('js/main.js') }}"></script>
     </body>
 </html>
