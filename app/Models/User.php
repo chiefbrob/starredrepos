@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use App\Traits\CanBlog;
+use App\Traits\CanTeamUp;
 use App\Traits\HasGithubToken;
-use App\Traits\HasRoles;
-use App\Traits\CanBlog;
 use App\Traits\HasRoles;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -23,7 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasRoles;
     use SoftDeletes;
     use CanBlog;
-    use HasGithubToken;
+    use CanTeamUp;
 
     /**
      * The attributes that are mass assignable.
