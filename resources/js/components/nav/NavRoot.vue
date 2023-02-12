@@ -167,7 +167,7 @@
         }
         let names = this.user.name.split(' ');
         let longN = null;
-        names.forEach((name) => {
+        names.forEach(name => {
           if (!longN || name.length > longN.length || name.length === longN.length) {
             longN = name;
           }
@@ -188,7 +188,7 @@
       },
     },
     created() {
-      console.log(this.$root.$store.state.config.name);
+      // console.log(this.$root.$store.state.config.name);
       //console.log(this.$root.$featureIsEnabled('production'));
       this.$root.$on('sendMessage', (message, variant) => {
         this.sendMessage(message, variant);
@@ -201,13 +201,13 @@
       setLocale(lang) {
         axios
           .post(`/language/${lang}`)
-          .then((results) => {
+          .then(results => {
             this.sendMessage('Language switched. Reloading...', 'success');
             setTimeout(() => {
               window.location.reload();
             }, 1200);
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
             this.sendMessage('Language switch Failed!', 'danger');
           });
@@ -218,10 +218,10 @@
         }
         axios
           .post(`/api/v1/search/`, this.form)
-          .then((results) => {
+          .then(results => {
             this.sendMessage('Profile updated', 'success');
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
             this.sendMessage('Search Failed!', 'danger');
           });
@@ -244,11 +244,11 @@
       loadUser() {
         axios
           .get('/api/v1/user')
-          .then((results) => {
+          .then(results => {
             this.$store.commit('user', results.data);
             window.User = results.data;
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           });
       },
