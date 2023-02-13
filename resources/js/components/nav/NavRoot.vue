@@ -12,7 +12,7 @@
 
     <b-navbar toggleable="lg" type="dark" variant="info" class="row">
       <b-navbar-brand
-        class="pl-2"
+        class="pl-2 pointer"
         @click="$router.push({ name: 'welcome' })"
         v-text="$root.$store.state.config.name"
       ></b-navbar-brand>
@@ -158,6 +158,11 @@
       };
     },
     computed: {
+      teamsActive() {
+        return false;
+        let name = this.$route.name;
+        return name.includes('team') || name.includes('task');
+      },
       user() {
         return this.$store.getters.user;
       },
