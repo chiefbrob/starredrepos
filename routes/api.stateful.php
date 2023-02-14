@@ -40,6 +40,10 @@ Route::prefix('v1')->group(static function () {
 
     Route::prefix('teams')->group(static function () {
         Route::get('/', Team\TeamIndexController::class)->name('v1.teams.index');
+        Route::put('/{team_id}', Team\UpdateTeamController::class)->name('v1.teams.update');
+        Route::post('/', Team\CreateTeamController::class)->name('v1.teams.create');
+        Route::post('/{team_id}/users', Team\AddUserToTeamController::class)->name('v1.teams.adduser');
+        Route::delete('/{team_id}/users', Team\RemoveUserFromTeamController::class)->name('v1.teams.removeuser');
     });
 
     Route::prefix('tasks')->group(static function () {
@@ -66,13 +70,6 @@ Route::prefix('v1')->group(static function () {
             Route::delete('/', Admin\Roles\RemoveRoleController::class)->name('user-role.delete');
         });
 
-        Route::prefix('teams')->group(static function () {
-            Route::post('/', Team\CreateTeamController::class)->name('v1.teams.create');
-            Route::post('/{team_id}', Team\UpdateTeamController::class)->name('v1.teams.update');
-            Route::post('/{team_id}/users', Team\AddUserToTeamController::class)->name('v1.teams.adduser');
-            Route::delete('/{team_id}/users', Team\RemoveUserFromTeamController::class)->name('v1.teams.removeuser');
-
-        });
     });
 
     Route::prefix('user')->group(static function () {
