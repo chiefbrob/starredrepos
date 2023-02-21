@@ -18,6 +18,7 @@ Route::prefix('v1')->group(static function () {
 
     Route::prefix('contacts')->namespace('Contact')->group(static function () {
         Route::get('/', GetContactsController::class)->name('v1.contact.index');
+        Route::put('/', UpdateContactController::class)->name('v1.contact.update');
     });
 
     Route::prefix('Github')->namespace('Github')->group(static function () {
@@ -70,7 +71,6 @@ Route::prefix('v1')->group(static function () {
             Route::post('/', Admin\Roles\AddUserRoleController::class)->name('user-role.create');
             Route::delete('/', Admin\Roles\RemoveRoleController::class)->name('user-role.delete');
         });
-
     });
 
     Route::prefix('user')->group(static function () {
