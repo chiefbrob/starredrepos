@@ -1,8 +1,11 @@
 <template>
   <div>
     <nav-root></nav-root>
-    <div class="row py-5 mb-5">
-      <div class="col-md-8 offset-md-2">
+    <div class="row mt-1">
+      <div
+        class="col-md-10 offset-md-1
+      "
+      >
         <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark">
           <template #header>Starred Repositories</template>
 
