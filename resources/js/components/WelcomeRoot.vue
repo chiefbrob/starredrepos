@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nav-root></nav-root>
     <div class="row mt-1">
       <div
         class="col-md-10 offset-md-1
@@ -23,6 +22,5 @@
         </b-jumbotron>
       </div>
     </div>
-    <page-footer></page-footer>
   </div>
 </template>
