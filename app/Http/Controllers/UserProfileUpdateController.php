@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserProfileUpdateRequest;
+use App\Models\Team;
 use App\Models\User;
 use App\PhotoManager;
 use Exception;
@@ -27,6 +28,14 @@ class UserProfileUpdateController extends Controller
             }
             $user->name = $request->name;
             $user->phone_number = $request->phone_number;
+            if ($request->team_id) {
+                $team = Team::findOrFail($request->team_id);
+                if($team->hasUser($user)) {
+                    $user->team_id = $team->id;
+                } else {
+                    throw new Exception("User not member of team");
+                }
+            }
 
             if ($request->hasFile('photo')) {
                 $photo = $request->file('photo');
