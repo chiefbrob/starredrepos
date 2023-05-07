@@ -24,6 +24,7 @@ class Product extends Variants
         'price',
         'description',
         'photo',
+        'long_description'
     ];
 
     protected $casts = [
