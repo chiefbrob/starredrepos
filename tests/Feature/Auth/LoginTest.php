@@ -35,7 +35,7 @@ class LoginTest extends TestCase
         ]);
 
         $response = $this->post('/login', [
-            'email' => $user->email,
+            'username' => $user->username,
             'password' => $password,
         ]);
 
@@ -49,12 +49,12 @@ class LoginTest extends TestCase
             'password' => Hash::make('i-love-laravel'),
         ]);
         $response = $this->from('/login')->post('/login', [
-            'email' => $user->email,
+            'username' => $user->username,
             'password' => 'invalid-password',
         ]);
         $response->assertRedirect('/login');
-        $response->assertSessionHasErrors('email');
-        $this->assertTrue(session()->hasOldInput('email'));
+        $response->assertSessionHasErrors('username');
+        $this->assertTrue(session()->hasOldInput('username'));
         $this->assertFalse(session()->hasOldInput('password'));
         $this->assertGuest();
     }
@@ -70,7 +70,7 @@ class LoginTest extends TestCase
         $user->save();
 
         $response = $this->post('/login', [
-            'email' => $user->email,
+            'username' => $user->username,
             'password' => $password,
         ]);
 
