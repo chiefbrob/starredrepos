@@ -44,6 +44,12 @@
               class="btn btn-sm btn-dark"
               value="Save Token"
             />
+            <a
+              target="_blank"
+              href="https://github.com/settings/tokens"
+              class="float-right btn btn-sm btn-link"
+              >Setup Token</a
+            >
           </b-form>
         </div>
         <div v-if="!loading" class="row">
