@@ -24,7 +24,7 @@ class SaveTokenRequest extends FormRequest
     public function rules()
     {
         return [
-            'github_token' => 'required|string|min:7|max:50'
+            'github_token' => 'required|string|min:7'
         ];
     }
 }

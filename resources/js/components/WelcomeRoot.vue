@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nav-root></nav-root>
     <div class="row py-5 mb-5">
       <div class="col-md-8 offset-md-2">
         <b-jumbotron bg-variant="info" text-variant="white" border-variant="dark">
