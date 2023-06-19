@@ -22,12 +22,6 @@ class CartRepository
 
     private $request = null;
 
-    private $reserved = false;
-
-    private $invoice = null;
-
-    private $request = null;
-
     public function __construct()
     {
         $this->cart = Session::get('cart', []);
